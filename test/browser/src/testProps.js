@@ -30,7 +30,7 @@ describe('testProps', function() {
 
   describe('native detect', function() {
     var nativeTestProps = function(props, value) {
-      return !!value ? true : undefined;
+      return value ? true : undefined;
     };
     var contains;
 

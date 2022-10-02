@@ -8,9 +8,11 @@ define(['isSVG'], function(isSVG) {
   var html5;
   if (!isSVG) {
     /**
+     * @param window
+     * @param document
      * @preserve HTML5 Shiv 3.7.3 | @afarkas @jdalton @jon_neal @rem | MIT/GPL2 Licensed
      */
-    ;(function(window, document) {
+    (function(window, document) {
       /*jshint evil:true */
       /** version */
       var version = '3.7.3';
@@ -21,7 +23,7 @@ define(['isSVG'], function(isSVG) {
       /** Used to skip problem elements */
       var reSkip = /^<|^(?:button|map|select|textarea|object|iframe|option|optgroup)$/i;
 
-      /** Not all elements can be cloned in IE **/
+      /** Not all elements can be cloned in IE */
       var saveClones = /^(?:a|b|code|div|fieldset|h1|h2|h3|h4|h5|h6|i|label|li|ol|p|q|span|strong|style|table|tbody|td|th|tr|ul)$/i;
 
       /** Detect whether the browser supports default html5 styles */
@@ -68,9 +70,10 @@ define(['isSVG'], function(isSVG) {
 
       /**
        * Creates a style sheet with the given CSS text and adds it to the document.
+       *
        * @private
        * @param {Document} ownerDocument The document.
-       * @param {String} cssText The CSS text.
+       * @param {string} cssText The CSS text.
        * @returns {StyleSheet} The style element.
        */
       function addStyleSheet(ownerDocument, cssText) {
@@ -83,6 +86,7 @@ define(['isSVG'], function(isSVG) {
 
       /**
        * Returns the value of `html5.elements` as an array.
+       *
        * @private
        * @returns {Array} An array of shived element node names.
        */
@@ -93,8 +97,9 @@ define(['isSVG'], function(isSVG) {
 
       /**
        * Extends the built-in list of html5 elements
+       *
        * @memberOf html5
-       * @param {String|Array} newElements whitespace separated list or array of new element names to shiv
+       * @param {string | Array} newElements whitespace separated list or array of new element names to shiv
        * @param {Document} ownerDocument The context document.
        */
       function addElements(newElements, ownerDocument) {
@@ -111,9 +116,10 @@ define(['isSVG'], function(isSVG) {
 
       /**
        * Returns the data associated to the given document
+       *
        * @private
        * @param {Document} ownerDocument The document.
-       * @returns {Object} An object of data.
+       * @returns {object} An object of data.
        */
       function getExpandoData(ownerDocument) {
         var data = expandoData[ownerDocument[expando]];
@@ -128,10 +134,12 @@ define(['isSVG'], function(isSVG) {
 
       /**
        * returns a shived element for the given nodeName and document
+       *
        * @memberOf html5
-       * @param {String} nodeName name of the element
+       * @param {string} nodeName name of the element
+       * @param data
        * @param {Document|DocumentFragment} ownerDocument The context document.
-       * @returns {Object} The shived element.
+       * @returns {object} The shived element.
        */
       function createElement(nodeName, ownerDocument, data){
         if (!ownerDocument) {
@@ -165,9 +173,11 @@ define(['isSVG'], function(isSVG) {
 
       /**
        * returns a shived DocumentFragment for the given document
+       *
        * @memberOf html5
+       * @param data
        * @param {Document} ownerDocument The context document.
-       * @returns {Object} The shived DocumentFragment.
+       * @returns {object} The shived DocumentFragment.
        */
       function createDocumentFragment(ownerDocument, data){
         if (!ownerDocument) {
@@ -189,9 +199,10 @@ define(['isSVG'], function(isSVG) {
 
       /**
        * Shivs the `createElement` and `createDocumentFragment` methods of the document.
+       *
        * @private
        * @param {Document|DocumentFragment} ownerDocument The document.
-       * @param {Object} data of the document.
+       * @param {object} data of the document.
        */
       function shivMethods(ownerDocument, data) {
         if (!data.cache) {
@@ -227,6 +238,7 @@ define(['isSVG'], function(isSVG) {
 
       /**
        * Shivs the given document.
+       *
        * @memberOf html5
        * @param {Document} ownerDocument The document to shiv.
        * @returns {Document} The shived document.
@@ -258,6 +270,7 @@ define(['isSVG'], function(isSVG) {
       /**
        * The `html5` object is exposed so that more elements can be shived and
        * existing shiving can be detected on iframes.
+       *
        * @type Object
        * @example
        *
@@ -268,6 +281,7 @@ define(['isSVG'], function(isSVG) {
 
         /**
          * An array or space separated string of node names of the elements to shiv.
+         *
          * @memberOf html5
          * @type Array|String
          */
@@ -280,6 +294,7 @@ define(['isSVG'], function(isSVG) {
 
         /**
          * A flag to indicate that the HTML5 style sheet should be inserted.
+         *
          * @memberOf html5
          * @type Boolean
          */
@@ -287,6 +302,7 @@ define(['isSVG'], function(isSVG) {
 
         /**
          * Is equal to true if a browser supports creating unknown/HTML5 elements
+         *
          * @memberOf html5
          * @type boolean
          */
@@ -295,6 +311,7 @@ define(['isSVG'], function(isSVG) {
         /**
          * A flag to indicate that the document's `createElement` and `createDocumentFragment`
          * methods should be overwritten.
+         *
          * @memberOf html5
          * @type Boolean
          */
@@ -302,6 +319,7 @@ define(['isSVG'], function(isSVG) {
 
         /**
          * A string to describe the type of `html5` object ("default" or "default print").
+         *
          * @memberOf html5
          * @type String
          */
