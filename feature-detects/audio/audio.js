@@ -44,7 +44,7 @@ define(['Modernizr', 'createElement'], function(Modernizr, createElement) {
 
     // IE9 Running on Windows Server SKU can cause an exception to be thrown, bug #224
     try {
-      if (!!elem.canPlayType) {
+      if (elem.canPlayType) {
         Modernizr.addTest('audio.ogg', elem.canPlayType('audio/ogg; codecs="vorbis"').replace(/^no$/, ''));
         Modernizr.addTest('audio.mp3', elem.canPlayType('audio/mpeg; codecs="mp3"').replace(/^no$/, ''));
         Modernizr.addTest('audio.opus', elem.canPlayType('audio/ogg; codecs="opus"') ||
